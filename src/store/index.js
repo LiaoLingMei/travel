@@ -6,6 +6,7 @@ import City from './modules/City'
 
 export default new Vuex.Store({
   modules: { // Vuex模块
-    City // 加载./modules/City.js
+     City // 加载./modules/City.js
   }
 })
+
