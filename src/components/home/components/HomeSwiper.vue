@@ -12,6 +12,7 @@
 </template>
 
 <script>
+  import  {mapGetters,mapActions} from "vuex";
     export default {
         name: "HomeSwiper",
       data() {
@@ -20,26 +21,17 @@
             autoplay:2000,
             pagination:".swiper-pagination"
           },
-          swiperList: [
-            {
-              "id": "0001",
-              "url": "http://localhost/qunar/swiper/dc11f0bb94057224b104a2017f313e21.jpg_750x200_feee379d.jpg"
-            },
-            {
-              "id": "0002",
-              "url": "http://localhost/qunar/swiper/17e2352b857f66e9d2948e98dc483bc2.jpg_750x200_2857d0a3.jpg"
-            },
-            {
-              "id": "0003",
-              "url": "http://localhost/qunar/swiper/d7bbc21db442366a882e04ddc984669a.jpg_750x200_85e640d9.jpg"
-            },
-            {
-              "id": "0004",
-              "url": "http://localhost/qunar/swiper/e5104d77fbfdb522bd4fe4f0451e517f.jpg_750x200_7d44f64b.jpg"
-            }
-          ]
         }
-      }
+      },
+      methods:{
+        ...mapActions(["getHomeList"]),
+      },
+      computed:{
+        ...mapGetters(['swiperList'])
+      },
+      mounted(){
+        this.getHomeList();
+    }
     }
 </script>
 

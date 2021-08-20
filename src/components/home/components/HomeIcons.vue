@@ -20,6 +20,7 @@
 </template>
 
 <script>
+  import  {mapGetters,mapActions} from "vuex";
     export default {
         name: "HomeIcons",
       data() {
@@ -28,59 +29,10 @@
             pagination:".swiper-pagination",
             loop:false
           },
-          iconList: [
-            {
-              "id": "0001",
-              "url": "http://localhost/qunar/icons/f3dd6c383aeb3b02.png",
-              "desc": "热门景点"
-            },
-            {
-              "id": "0002",
-              "url": "http://localhost/qunar/icons/f0f00d6dfe038c044dbc9a437f58b0eb.png",
-              "desc": "北京一日游"
-            },
-            {
-              "id": "0003",
-              "url": "http://localhost/qunar/icons/fdf170ee89594b02.png",
-              "desc": "北京必游"
-            },
-            {
-              "id": "0004",
-              "url": "http://localhost/qunar/icons/c2b659e048b11602.png",
-              "desc": "溜娃儿"
-            },
-            {
-              "id": "0005",
-              "url": "http://localhost/qunar/icons/0334cf5430b9b5505fd79e2b8d7e8670.png",
-              "desc": "爬长城"
-            },
-            {
-              "id": "0006",
-              "url": "http://localhost/qunar/icons/9e54a8540fee0102.png",
-              "desc": "故宫"
-            },
-            {
-              "id": "0007",
-              "url": "http://localhost/qunar/icons/eb88861d78fb9902.png",
-              "desc": "动植物园 "
-            },
-            {
-              "id": "0008",
-              "url": "http://localhost/qunar/icons/35d83bb968d80d54926f30cfb92cb6ff.png",
-              "desc": "每周好货"
-            },
-            {
-              "id": "0009",
-              "url": "http://localhost/qunar/icons/b4511345827006994aa1980a3886f0ac.png",
-              "desc": "北京世园会"
-            },
-            {
-              "id": "0010",
-              "url": "http://localhost/qunar/icons/338c5b924c5809e8c7b14f60a953c3e2.png",
-              "desc": "北京欢乐谷"
-            }
-          ]
         }
+      },
+      methods:{
+          ...mapActions(['getHomeList'])
       },
       computed:{
         pages(){
@@ -97,13 +49,17 @@
             pages[page].push(item)
           })
           return pages;
-        }
+        },
+        ...mapGetters(['iconList'])
+      },
+      mounted(){
+        this.getHomeList();
       }
     }
 </script>
 <style lang="stylus" scoped>
-@import "~styles/variables.styl"
-@import "~styles/mixins.styl"
+@import "~styles/variables.styl";
+@import "~styles/mixins.styl";
 .icons >>> .swiper-container /* 样式穿透，.swiper-container为 swiper 组件的容器样式 */
   width 100%
   height 0

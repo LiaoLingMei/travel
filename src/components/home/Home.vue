@@ -18,7 +18,7 @@
 
   HomeIcons
   export default {
-    name: ' Home',
+    name: 'Home',
     data () {
       return {
 
