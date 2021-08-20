@@ -52,17 +52,18 @@
 
 <script>
   //滚动插件导入
-import BScroll from 'better-scroll'
-// 将 vuex 中的getters 中所有的函数映射出来
-import { mapGetters, mapActions } from 'vuex'
+  import BScroll from 'better-scroll';
+  // 将 vuex 中的getters 中所有的函数映射出来,用对象解构的方式导入getter所有的的函数
+  //// 在单独构建的版本中辅助函数为 Vuex.mapGetters
+  import  {mapGetters} from "vuex";
 
 export default {
   name: "CityIndex",
   data() {
     return {
       myCity:"北京",
-      hotCities:[],//热门城市列表
-      cities:[],//字母城市列表
+      //hotCities:[],//热门城市列表
+     // cities:[],//字母城市列表
     }
   },
   methods: {
@@ -74,6 +75,7 @@ export default {
       //滚动到 letterElement 元素的位置
       this.scroll.scrollToElement(letterElement,1000)
     },
+
     //改变我的位置事件
     changeCity(cityName) { // 这个函数是演示用，没有用到
       if (cityName != null) {
@@ -81,6 +83,7 @@ export default {
         localStorage.myCity = cityName;//存储我的位置
       }
     },
+
     //返回首页事件,用代码的路由方式:导航到首页
     backHome() {
       this.$router.push("/")
@@ -88,16 +91,18 @@ export default {
 
   },
   computed: {
-
+    //将getter里面所有的函数结构成methods里面的方法cities(),hotCyties()两个计算属性
+    ...mapGetters(['cities','hotCities']),
   },
   mounted() {
-    //异步请求
+
+   /* //异步请求
     this.axios.get(`/api/china_city_data.json`).then(response=>{//回调成功时调用
       this.cities = response.data.data.cities;
       this.hotCities = response.data.data.hotCities;
     }).then(err=>{//回调失败时调用
       console.log(err);
-    }),
+    }),*/
       //控制版本滚动的区域创建 better-scroll 实例去接管可滚动的区域
       //this.scroll = new BScroll(this.$refs.wrapper);
       this.scroll=new BScroll('.wrapper')

@@ -27,9 +27,14 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 //异步请求全局注册
 Vue.use(VueAxios, axios)
+//vue状态管理
+import store from "./store"
+
+
 new Vue({
   el: '#app',
   router, // 路由管理
+  store,//vue状态管理
   components: { App },
   template: '<App/>'
 })
