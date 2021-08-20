@@ -33,22 +33,29 @@
 </template>
 
 <script>
-  import  {mapGetters,mapActions} from "vuex";
+ // import  {mapGetters,mapActions} from "vuex";
     export default {
         name: "HomeRecommend",
       data() {
         return {
         }
       },
+      props:{
+        recommendList:Array
+      },
       methods:{
-          ...mapActions(['getHomeList']),
+          //...mapActions(['getHomeList']),
       },
       computed:{
-          ...mapGetters(['recommendList']),
+          //...mapGetters(['recommendList']),
       },
-      mounted(){
-        this.getHomeList()
-      }
+     /* mounted(){
+        if (localStorage.myCity) {
+          this.getHomeList(localStorage.myCity);
+        }else {
+          this.getHomeList();
+        }
+      }*/
     }
 </script>
 

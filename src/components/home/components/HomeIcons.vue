@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import  {mapGetters,mapActions} from "vuex";
+ // import  {mapGetters,mapActions} from "vuex";
     export default {
         name: "HomeIcons",
       data() {
@@ -31,8 +31,11 @@
           },
         }
       },
+      props:{
+        iconList:Array
+      },
       methods:{
-          ...mapActions(['getHomeList'])
+          //...mapActions(['getHomeList'])
       },
       computed:{
         pages(){
@@ -50,11 +53,15 @@
           })
           return pages;
         },
-        ...mapGetters(['iconList'])
+      //  ...mapGetters(['iconList'])
       },
-      mounted(){
-        this.getHomeList();
-      }
+    /*  mounted(){
+        if (localStorage.myCity) {
+          this.getHomeList(localStorage.myCity);
+        }else {
+          this.getHomeList();
+        }
+      }*/
     }
 </script>
 <style lang="stylus" scoped>

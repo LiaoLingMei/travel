@@ -11,10 +11,17 @@ const state = {
 负责发异步请求,给后台的API服务系统进行交互
 */
 const actions = {
-  getHomeList({commit}) {
-    axios.get('/api/index.json')
+  getHomeList({commit},myCity) {
+    let requestPath = "";
+    if(myCity ==='重庆'){
+      requestPath="/api/index_chongqing.json";
+    }else {
+      requestPath="/api/index.json";
+    }
+    console.log('Request API Path: ', requestPath)
+    axios.get(requestPath)
       .then((response) => {
-        console.log(response)
+        //console.log(response)
         commit('storeHomeList', response.data.data)
       })
       .catch(err => {

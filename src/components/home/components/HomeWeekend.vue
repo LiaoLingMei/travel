@@ -24,15 +24,22 @@
 
         }
       },
+      props:{
+        weekendList:Array
+      },
       methods:{
-        ...mapActions(['getHomeList']),
+        //...mapActions(['getHomeList']),
       },
       computed:{
-        ...mapGetters(['weekendList']),
+        //...mapGetters(['weekendList']),
       },
-      mounted(){
-        this.getHomeList()
-      }
+   /*   mounted(){
+        if (localStorage.myCity) {
+          this.getHomeList(localStorage.myCity);
+        }else {
+          this.getHomeList();
+        }
+      }*/
     }
 </script>
 

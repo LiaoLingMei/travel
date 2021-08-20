@@ -87,9 +87,10 @@ export default {
 
     //返回首页事件,用代码的路由方式:导航到首页
     backHome() {
-      this.$router.push("/")
+      this.getHomeList(this.myCity)
+       this.$router.push("/")
     },
-    ...mapActions(["getHotCities"]),
+    ...mapActions(["getHotCities","getHomeList"]),
   },
   computed: {
     //将getter里面所有的函数结构成methods里面的方法cities(),hotCyties()两个计算属性

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import  {mapGetters,mapActions} from "vuex";
+  //import  {mapGetters,mapActions} from "vuex";
     export default {
         name: "HomeSwiper",
       data() {
@@ -23,15 +23,22 @@
           },
         }
       },
+      props:{
+        swiperList:Array
+      },
       methods:{
-        ...mapActions(["getHomeList"]),
+        //...mapActions(["getHomeList"]),
       },
       computed:{
-        ...mapGetters(['swiperList'])
+        //...mapGetters(['swiperList'])
       },
-      mounted(){
-        this.getHomeList();
-    }
+   /*   mounted(){
+        if (localStorage.myCity) {
+          this.getHomeList(localStorage.myCity);
+        }else {
+          this.getHomeList();
+        }
+      }*/
     }
 </script>
 

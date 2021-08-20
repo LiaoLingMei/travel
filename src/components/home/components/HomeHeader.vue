@@ -23,9 +23,12 @@
     name: "HomeHeader",
     data() {
       return {
-        city: '北京'
+        // city: 'dddd'
       }
     },
+    props: {
+      city: String
+    }
   }
 </script>
 
