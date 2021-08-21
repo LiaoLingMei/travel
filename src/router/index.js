@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home/Home'
 import CityIndex from '@/components/city/CityIndex';
+import HomeRecommentDetail from '@/components/detail/HomeRecommentDetail';
 
 Vue.use(Router)
 
@@ -17,7 +18,11 @@ export default new Router({
       path: '/city',
       name: 'CityIndex',
       component: CityIndex
-    },
+    },{
+      path: '/detail',
+      name: 'HomeRecommentDetail',
+      component: HomeRecommentDetail
+    }
   ],
   scrollBehavior (to, from, savedPosition) {
   return { x: 0, y: 0 }

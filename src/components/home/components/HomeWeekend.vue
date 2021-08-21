@@ -18,28 +18,10 @@
 <script>
   import  {mapGetters,mapActions} from "vuex";
     export default {
-        name: "HomeWeekend",
-      data() {
-        return {
-
-        }
-      },
+      name: "HomeWeekend",
       props:{
         weekendList:Array
       },
-      methods:{
-        //...mapActions(['getHomeList']),
-      },
-      computed:{
-        //...mapGetters(['weekendList']),
-      },
-   /*   mounted(){
-        if (localStorage.myCity) {
-          this.getHomeList(localStorage.myCity);
-        }else {
-          this.getHomeList();
-        }
-      }*/
     }
 </script>
 
@@ -51,6 +33,8 @@
   padding 5px
 .weekend-list
   position relative
+  .weekend-list-img
+    width:100%
   .weekend-list-title
     position relative
     top 5px

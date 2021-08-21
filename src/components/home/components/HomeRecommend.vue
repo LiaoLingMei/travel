@@ -2,14 +2,19 @@
   <div>
     <div class="title">热销推荐</div>
     <ul>
-      <!--<router-link tag="li"
+    <!--  <router-link tag="li"
                    class="item border-bottom"
-                   v-for="item in list"
+                   v-for="item in recommendList"
                    :key="item.id"
                    :to="`/detail/${item.id}`"
       >-->
+      <router-link tag="li"
+                   class="item border-bottom"
+                   v-for="item in recommendList"
+                   :key="item.id"
+                   :to='{name:"HomeRecommentDetail",params:{id:item.id}}'>
       <!--盒子模型布局-->
-      <li class="item border-bottom" v-for="item in recommendList" :key="item.id">
+      <li class="item border-bottom" >
         <!--左边图片-->
         <div class="item-img-wrapper">
           <img class="item-img" :src="item.url" :alt="item.title">
@@ -27,35 +32,18 @@
           </p>
         </div>
       </li>
-      <!--      </router-link>-->
+      </router-link>
     </ul>
   </div>
 </template>
 
 <script>
- // import  {mapGetters,mapActions} from "vuex";
     export default {
         name: "HomeRecommend",
-      data() {
-        return {
-        }
-      },
       props:{
         recommendList:Array
       },
-      methods:{
-          //...mapActions(['getHomeList']),
-      },
-      computed:{
-          //...mapGetters(['recommendList']),
-      },
-     /* mounted(){
-        if (localStorage.myCity) {
-          this.getHomeList(localStorage.myCity);
-        }else {
-          this.getHomeList();
-        }
-      }*/
+
     }
 </script>
 
@@ -90,6 +78,7 @@
       color: $descTextColor
       ellipsis()
     .item-price
+      width:100%
       line-height 22px
       margin-top 10px
       color #ff8c12
